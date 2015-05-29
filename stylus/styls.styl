@@ -1,20 +1,167 @@
 @import "normalize.styl"
 @import "fonts.styl"
 
-gris_claro = #cecece 
+gris_claro = #cecece  
 girs_oscuro = #333333
+azul_face = #3d5998
+azul_twi = #60a9de
+border_registro = #ac285f
+boton_registro = #D0285F
 
 body
-	font-family 'Varela Round', sans-serif;
-	font-size 16px
-figure
-	margin 0
+	font-family 'Varela Round', sans-serif
+	font-size 16px 
 a
 	text-decoration none
+figure
+	margin 0
+	padding 0
+img 
+	vertical-align top 
+.center
+	text-align center
+.color_white
+	color white
+.padding
+	padding 1em
+.padding-tb
+	padding 1em 0
+.text_right
+	text-align right
+/*Estilos playing*/
+.progress
+	margin 1em 0
+	position relative
+	.min
+	.max
+		font-size 0.8em
+		bottom -5px
+		position absolute
+	.min
+		left 0
+	.max
+		right 0
+	.total
+		height 5px
+		background gris_claro
+		width 75%
+		border-radius 2px
+		margin 0 auto 
+	.state
+		height 5px
+		background red
+		position relative
+		width 30% 
+		border-radius 2px
+	.circle
+		width 10px
+		height 10px
+		border-radius 50%
+		background girs_oscuro
+		right 0
+		top -2px
+		position absolute
+.playing
+	&.small
+		width 20em
+		margin 0 auto
+.actions
+	background rgba(black, .3)
+	bottom 0
+	left 0
+	right 0
+.action
+	color white
+	font-size 1.3em
+	padding-right 1em
+	&:last-child
+		padding-right 0
+.play
+	.action 
+		color black
+// Estilos Log in //
+
+.facebock
+	background azul_face 
+.twitter		
+	background azul_twi 
+.big
+	width 16em
+	border-radius 2px
+	border 1px solid gris_claro
+	height 2.8em
+	margin 1em auto
+	padding-left 2em
+	font-size 1em
+.color
+	background boton_registro
+	border none
+	border-radius 5px 
+	border-bottom 4px solid border_registro 
+.gris
+	color gris_claro
+.login
+	margin 0
+	padding 0  
+	&.small_login
+		width auto
+		margin 0 auto
+	.cabecera
+		color white 
+		margin 0
+		background-image url('../images/cabecera1.jpg')
+		background-repeat no-repeat
+		background-position center 
+		height 19em
+		.bottom
+			display block
+			border-radius 5px
+			color white  
+			width 17em 
+			padding .5em 0 1.5em 0
+			margin-left 1em
+			margin 2em auto
+	.buttoms_ingreso
+		margin 2em 0
+		line-height 3em 
+		.sig_in
+			margin-right 2em 
+			text-decoration underline
+		.account 
+			margin-left 2em 
+			text-decoration underline
+	.form_lo
+		border-top 2px solid gris_claro
+		height auto
+		margin-bottom 1em
+		width 21.5em
+		.input 
+			display block 
+		.bloqueo
+			top 4.2em
+			left 2.3em
+		.email
+			top 34%
+			left 2.1em
+		.contra 
+			top 51% 
+			left 2.3em
+		.recontra
+			bottom 29%
+			left 2.3em
+		.boton
+			color white
+			width 18em
+			height 3em
+			padding-left 0
+
+
+
+// Estilos del Play List //	
 .container
 	padding 1.4rem
-	font-size 0
-	text-align center
+	font-size 0 
+	text-align center 
 .left
 	text-align left
 .name
@@ -39,8 +186,8 @@ a
 
 //buttoms
 .button_menu
-	color gris_oscuro
-	font-size 1.5em
+	font-size 1.3em
+	color girs_oscuro
 	top 64%
 	margin-left 1.6em
 
@@ -59,3 +206,5 @@ a
 		margin 0 
 		text-align center
 		line-height 3.5em
+
+

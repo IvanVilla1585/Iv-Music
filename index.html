@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
@@ -11,11 +11,11 @@
 	<header class="header border_buttom relative">
 		<div class="search">
 			<form action="" method="post">
-				<input type="text" class="input">
-				<span class="icon-prev"></span>
+				<span class="icon-arrow-left2"></span>
+				<input type="text" class="input">				
 			</form>
 		</div>
-		<a href="#" class="button_menu icon-menu absolute"></a>
+		<a href="#" class="button_menu icon-menu absolute name"></a>
 		<nav class="menu">
 			<ul class="list">
 				<li>
@@ -35,9 +35,129 @@
 		<div class="title">
 			<span>
 				Top hit
-			</span>
+			</span> 
 		</div>
 	</header>
+	<section class="login center small_login">
+		<div class="cabecera center">
+			<figure class="logo_cabecera">
+				<img src="images/logo.png" width="122" height="38" alt="">
+			</figure>
+			<p claas="title_login">
+				Toda tu musica en un solo lugar
+			</p>
+			<a href="" class="bottom facebock icon-facebook">Conectate con Facebook</a>
+			<a href="" class="bottom twitter icon-twitter">Conectate con Twitter</a>
+		</div>
+		<div class="buttoms_ingreso small">
+			<a class="sig_in name">Log in</a>
+			<a class="account name">Create Account</a> 
+		</div>
+		<form action="" method="post" class="form_lo center small border_buttom relative">
+			<p class="name title">
+				Ingresar
+			</p>
+			<span class="icon-user absolute bloqueo gris"></span>
+			<input type="text" placeholder="Username" class="input big"/>
+			<input type="password" placeholder="Chose a Password" class="input big"/>
+			<span class="icon-lock absolute gris contra"></span>
+			<input type="submit" value="Login" class="big color boton center"/>
+		</form>
+		<form action="" method="post" class="form_lo center small border_buttom relative">
+			<p class="name title">
+				Crea una Cuenta
+			</p>
+			<span class="icon-user absolute bloqueo gris"></span>
+			<input type="text" placeholder="Username" class="input big"/>
+			<input type="email" placeholder="E-mail" class="input big"/>
+			<span class="icon-mail absolute gris email"></span>
+			<input type="password" placeholder="Choose a Password" class="input big"/>
+			<span class="icon-lock absolute gris contra"></span>
+			<input type="password" placeholder="Confirm Password" class="input big"/>
+			<span class="icon-lock absolute gris recontra"></span>
+			<input type="submit" value="Registrate" class="big color boton center"/>
+		</form>
+		<div class="escucha">
+			<figure class="img_login">
+				<img class="imag_escucha" src="images/Imagenes_Login/escucha2.jpg" width="350" heigth="249" id="imagen1" alt=""></li> 
+			</figure>
+			<p class="name">Escucha</p>
+			<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+		</div>	
+		<div class="escucha">
+			<figure class="img_login">
+				<img class="imag_escucha" src="images/Imagenes_Login/comparte.jpg" width="350" heigth="249" id="imagen1" alt=""></li> 
+			</figure>
+			<p class="name">Comparte</p>
+			<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+		</div>
+		<div class="escucha small_login">
+			<figure class="img_login">
+				<img class="imag_escucha" src="images/Imagenes_Login/lista.jpg" width="350" heigth="249" id="imagen1" alt=""></li> 
+			</figure>
+			<p class="name">Crea Tu Lista</p>
+			<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+		</div>
+	</section>
+	<section class="playing small">
+		<div class="music">
+			<figure class="image relative">
+				<img src="images/songs/play1.jpg" width="320" heigth="320" alt="">
+				<div class="actions absolute padding text_right">
+					<a href="" class="action icon-add"></a>
+					<a href="" class="action icon-love"></a>
+					<a href="" class="action icon-share"></a>
+				</div>
+			</figure>
+			<div class="padding">
+				<div class="progress">
+					<span class="min">0:38</span>
+					<div class="total">
+						<div class="state">
+							<div class="circle">
+							</div>
+						</div>
+					</div>
+					<span class="max">4:05</span>
+				</div>
+			</div>
+			<div class="description center border_buttom">
+				<p class="name">
+					Comme Get It Bae
+				</p>
+				<p class="author">
+					Pharrell Williams
+				</p>
+			</div>
+			<div class="play center padding-tb">
+				<a href="" class="action icon-prev"></a>
+				<a href="" class="action icon-play"></a>
+				<a href="" class="action icon-next"></a>
+				<a href="" class="action icon-random"></a>
+				<a href="" class="action icon-vol"></a>
+			</div>
+		</div>
+		<div class="playlist">
+			<p class="name">
+				Girl
+			</p>
+			<p class="author">
+				Pharrell Williams
+			</p>
+			<ul>
+				<li class="item">
+					<span>
+						The Upsetter
+					</span>
+					<div class="actions">
+						<a href="" class="action icon-add"></a>
+						<a href="" class="action icon-love"></a>
+						<a href="" class="action icon-share"></a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
 	<section class="container">
 		<article class="song left">
 			<figure>
