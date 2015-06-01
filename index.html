@@ -3,31 +3,47 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Sfotipy</title>
+	<title>Iv-Music</title>
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/styls.css">
 </head>
 <body>
-	<header class="header border_buttom relative">
-		<div class="search">
-			<form action="" method="post">
-				<span class="icon-arrow-left2"></span>
-				<input type="text" class="input">				
-			</form>
-		</div>
+	<header class="header border_buttom medium_login relative">
+		<div class="wrap center_block">	
+			<div class="logos center">
+				<figure class="image isotipo_header left">
+					<img src="images/logoori.png"  width="220" height="49" alt="">
+				</figure>
+				<div class="avatars right"> 
+					<figure class="left">
+						<img src="images/avatars/avatar.jpg" class="avatar" alt="">
+					</figure>
+					<span class="username right">
+						@IvanVilla85
+					</span>
+				</div>
+				<div class="search right relative">
+					<form action="" method="post">
+						<span class="icon-search absolute"></span>
+						<input type="text" placeholder="search" class="input_search">
+						<span class="icon-x absolute">X</span>				
+					</form>
+				</div>
+			</div>
+		</div>	
 		<a href="#" class="button_menu icon-menu absolute name"></a>
 		<nav class="menu">
-			<ul class="list">
-				<li>
+			<ul class="list wrap center_block">
+				<li class="item">
 					<a href="#">Top Hits</a>
 				</li>
-				<li>
+				<li class="item">
 					<a href="#">Profile</a>
 				</li>
-				<li>
+				<li class="item">
 					<a href="#">Settings</a>
 				</li>
-				<li>
+				<li class="item">
 					<a href="#">Playlist</a>
 				</li>
 			</ul>
@@ -38,68 +54,83 @@
 			</span> 
 		</div>
 	</header>
-	<section class="login center small_login">
-		<div class="cabecera center">
-			<figure class="logo_cabecera">
-				<img src="images/logo.png" width="122" height="38" alt="">
-			</figure>
-			<p claas="title_login">
-				Toda tu musica en un solo lugar
-			</p>
-			<a href="" class="bottom facebock icon-facebook">Conectate con Facebook</a>
-			<a href="" class="bottom twitter icon-twitter">Conectate con Twitter</a>
+	<section class="login center small_login medium_login">
+		<div class="cabecera center relative height">
+			<figure class="image relative">
+				<img src="images/cabecera.jpg" width="480" height="366" class="logo" alt="">
+				<div class="img_title center absolute">
+					<figure class="image_login">
+						<img src="images/logoori.png" width="220" height="49" class="isotipo_log" alt="">
+					</figure>
+					<p class="title_login">
+						Toda tu musica en un solo lugar
+					</p>
+					<a href="" class="bottom_facebock relative"><span class="icon-facebook absolute"></span>Conectate con Facebook</a>
+					<a href="" class="bottom_twitter relative"><span class="icon-twitter absolute"></span>Conectate con Twitter</a>
+				</div>
+			</figure>			
 		</div>
-		<div class="buttoms_ingreso small">
+		<div class="buttoms_ingreso small_login medium_login">
 			<a class="sig_in name">Log in</a>
 			<a class="account name">Create Account</a> 
 		</div>
-		<form action="" method="post" class="form_lo center small border_buttom relative">
+		<form action="" method="post" class="form_lo center border_buttom relative">
 			<p class="name title">
 				Ingresar
 			</p>
-			<span class="icon-user absolute bloqueo gris"></span>
-			<input type="text" placeholder="Username" class="input big"/>
-			<input type="password" placeholder="Chose a Password" class="input big"/>
-			<span class="icon-lock absolute gris contra"></span>
-			<input type="submit" value="Login" class="big color boton center"/>
+			<div class="inputs relative">
+				<input type="text" placeholder="Username" class="input big relative">
+				<span class="icon-user absolute user gris"></span></input>
+				<input type="password" placeholder="Chose a Password" class="input big"/>
+				<span class="icon-lock absolute gris contra"></span>
+				<input type="submit" value="Login" class="big color boton center"/>
+			</div>
 		</form>
-		<form action="" method="post" class="form_lo center small border_buttom relative">
+		<form action="" method="post" class="form_lo center border_buttom relative">
 			<p class="name title">
 				Crea una Cuenta
 			</p>
-			<span class="icon-user absolute bloqueo gris"></span>
-			<input type="text" placeholder="Username" class="input big"/>
-			<input type="email" placeholder="E-mail" class="input big"/>
-			<span class="icon-mail absolute gris email"></span>
-			<input type="password" placeholder="Choose a Password" class="input big"/>
-			<span class="icon-lock absolute gris contra"></span>
-			<input type="password" placeholder="Confirm Password" class="input big"/>
-			<span class="icon-lock absolute gris recontra"></span>
-			<input type="submit" value="Registrate" class="big color boton center"/>
+			<div class="inputs relative">
+				<span class="icon-user absolute user gris"></span>
+				<input type="text" placeholder="Username" class="input big"/>
+				<input type="email" placeholder="E-mail" class="input big"/>
+				<span class="icon-mail absolute gris email"></span>
+				<input type="password" placeholder="Choose a Password" class="input big"/>
+				<span class="icon-lock absolute gris contra1"></span>
+				<input type="password" placeholder="Confirm Password" class="input big"/>
+				<span class="icon-lock absolute gris recontra"></span>
+				<input type="submit" value="Registrate" class="big color boton center"/>
+			</div>
 		</form>
-		<div class="escucha">
-			<figure class="img_login">
-				<img class="imag_escucha" src="images/Imagenes_Login/escucha2.jpg" width="350" heigth="249" id="imagen1" alt=""></li> 
+		<div class="escucha small_login medium_login">
+			<figure class="image">
+				<img class="imag_escucha" src="images/Imagenes_Login/escucha2.jpg" width="480" heigth="341" id="imagen1" alt=""></li> 
 			</figure>
-			<p class="name">Escucha</p>
-			<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			<div class="description center border_buttom">
+				<p class="name">Escucha</p>
+				<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
 		</div>	
-		<div class="escucha">
-			<figure class="img_login">
-				<img class="imag_escucha" src="images/Imagenes_Login/comparte.jpg" width="350" heigth="249" id="imagen1" alt=""></li> 
+		<div class="escucha small_login medium_login">
+			<figure class="image">
+				<img class="imag_escucha" src="images/Imagenes_Login/comparte.jpg" width="480" heigth="341" id="imagen1" alt=""></li> 
 			</figure>
-			<p class="name">Comparte</p>
-			<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			<div class="description center border_buttom">
+				<p class="name">Comparte</p>
+				<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
 		</div>
-		<div class="escucha small_login">
-			<figure class="img_login">
-				<img class="imag_escucha" src="images/Imagenes_Login/lista.jpg" width="350" heigth="249" id="imagen1" alt=""></li> 
+		<div class="escucha small_login medium_login">
+			<figure class="image">
+				<img class="imag_escucha" src="images/Imagenes_Login/lista.jpg" width="480" heigth="341" id="imagen1" alt=""></li> 
 			</figure>
-			<p class="name">Crea Tu Lista</p>
-			<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			<div class="description center border_buttom">
+				<p class="name">Crea Tu Lista</p>
+				<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+			</div>
 		</div>
 	</section>
-	<section class="playing small">
+	<section class="playing small medium large">
 		<div class="music">
 			<figure class="image relative">
 				<img src="images/songs/play1.jpg" width="320" heigth="320" alt="">
@@ -129,31 +160,111 @@
 					Pharrell Williams
 				</p>
 			</div>
-			<div class="play center padding-tb">
-				<a href="" class="action icon-prev"></a>
-				<a href="" class="action icon-play"></a>
-				<a href="" class="action icon-next"></a>
-				<a href="" class="action icon-random"></a>
-				<a href="" class="action icon-vol"></a>
+			<div class="play center padding-tb gris">
+				<a href="" class="action icon-prev gris"></a>
+				<a href="" class="action icon-play gris"></a>
+				<a href="" class="action icon-next gris"></a>
+				<a href="" class="action icon-random gris"></a>
+				<a href="" class="action icon-vol gris"></a>
 			</div>
 		</div>
-		<div class="playlist">
+		<div class="playlist right">
 			<p class="name">
 				Girl
 			</p>
 			<p class="author">
 				Pharrell Williams
 			</p>
-			<ul>
-				<li class="item">
+			<ul class="list">
+				<li class="item border_buttom">
 					<span>
 						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
 					</span>
-					<div class="actions">
-						<a href="" class="action icon-add"></a>
-						<a href="" class="action icon-love"></a>
-						<a href="" class="action icon-share"></a>
-					</div>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
+				</li>
+				<li class="item border_buttom">
+					<span>
+						The Upsetter
+					</span> 
+					<span class="right">
+						<a href="" class="action icon-add gris"></a>
+						<a href="" class="action icon-love gris"></a>
+						<a href="" class="action icon-share gris"></a> 
+					</span>
 				</li>
 			</ul>
 		</div>
