@@ -1,0 +1,1 @@
+IvMusic.Models.Song = Backbone.Model.extend({});
