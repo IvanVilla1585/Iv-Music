@@ -5,7 +5,7 @@ IvMusic.Views.Song = Backbone.View.extend({
 	className: 'item border_buttom',
 	
 	events: {
-
+		'click .song': 'action' 
 	},
 	
 	template: Handlebars.compile($("#song-template").html()),
@@ -19,5 +19,9 @@ IvMusic.Views.Song = Backbone.View.extend({
 		var html = this.template(song);
 		this.$el.html(html);
 		return this;
+	},
+
+	action: function (){
+		IvMusic.app.actionPlay.model.set(this.model.toJSON());
 	}
 });

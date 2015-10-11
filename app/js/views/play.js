@@ -1,6 +1,6 @@
 IvMusic.Views.Playing = Backbone.View.extend({
 
-	el: $(".music"),
+	el: $(".music > .play"),
 
 	template: Handlebars.compile($("#player-template").html()),
 
@@ -9,9 +9,7 @@ IvMusic.Views.Playing = Backbone.View.extend({
 	},
 
 	render: function (){
-		var play = this.model.toJSON();
-		var html = this.template(play);
-		this.$el.html(html);
-		return this;
+		var album = this.model.toJSON();
+		this.$el.html(this.template(album));
 	}
 });

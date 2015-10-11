@@ -22,7 +22,8 @@ IvMusic.Views.Album = Backbone.View.extend({
 	},
 
 	navigate: function () {
+	    var albu = IvMusic.app.jsonData["this.model.get('name')"];
 		IvMusic.app.navigate("album/" + this.model.get("name"), { trigger: true });
-		IvMusic.app.play.model.set(this.model.toJSON());
+		IvMusic.app.play.model.set( this.model.toJSON() );
 	}
 });

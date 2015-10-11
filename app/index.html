@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
@@ -9,12 +9,12 @@
 </head>
 <body>
 	<header class="header border_buttom medium_login relative">
-		<div class="wrap center_block">	
+		<div class="wrap center_block">
 			<div class="logos center">
 				<figure class="image isotipo_header left">
 					<img src="images/logoori.png"  width="220" height="49" alt="">
 				</figure>
-				<div class="avatars right"> 
+				<div class="avatars right">
 					<figure class="left">
 						<img src="images/avatars/avatar.jpg" class="avatar" alt="">
 					</figure>
@@ -26,11 +26,11 @@
 					<form action="" method="post">
 						<span class="icon-search absolute"></span>
 						<input type="text" placeholder="search" class="input_search">
-						<span class="icon-x absolute">X</span>				
+						<span class="icon-x absolute">X</span>
 					</form>
 				</div>
 			</div>
-		</div>	
+		</div>
 		<a href="#" class="button_menu icon-menu absolute name"></a>
 		<nav class="menu">
 			<ul class="list wrap center_block">
@@ -51,7 +51,7 @@
 		<div class="title">
 			<span>
 				Top hit
-			</span> 
+			</span>
 		</div>
 	</header>
 	<section class="login center small_login medium_login">
@@ -68,11 +68,11 @@
 					<a href="" class="bottom_facebock relative"><span class="icon-facebook absolute"></span>Conectate con Facebook</a>
 					<a href="" class="bottom_twitter relative"><span class="icon-twitter absolute"></span>Conectate con Twitter</a>
 				</div>
-			</figure>			
+			</figure>
 		</div>
 		<div class="buttoms_ingreso small_login medium_login">
 			<a class="sig_in name">Log in</a>
-			<a class="account name">Create Account</a> 
+			<a class="account name">Create Account</a>
 		</div>
 		<form action="" method="post" class="form_lo center border_buttom relative">
 			<p class="name title">
@@ -104,16 +104,16 @@
 		</form>
 		<div class="escucha small_login medium_login">
 			<figure class="image">
-				<img class="imag_escucha" src="images/Imagenes_Login/escucha2.jpg" width="480" heigth="341" id="imagen1" alt=""></li> 
+				<img class="imag_escucha" src="images/Imagenes_Login/escucha2.jpg" width="480" heigth="341" id="imagen1" alt=""></li>
 			</figure>
 			<div class="description center border_buttom">
 				<p class="name">Escucha</p>
 				<p class="author">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 			</div>
-		</div>	
+		</div>
 		<div class="escucha small_login medium_login">
 			<figure class="image">
-				<img class="imag_escucha" src="images/Imagenes_Login/comparte.jpg" width="480" heigth="341" id="imagen1" alt=""></li> 
+				<img class="imag_escucha" src="images/Imagenes_Login/comparte.jpg" width="480" heigth="341" id="imagen1" alt=""></li>
 			</figure>
 			<div class="description center border_buttom">
 				<p class="name">Comparte</p>
@@ -122,7 +122,7 @@
 		</div>
 		<div class="escucha small_login medium_login">
 			<figure class="image">
-				<img class="imag_escucha" src="images/Imagenes_Login/lista.jpg" width="480" heigth="341" id="imagen1" alt=""></li> 
+				<img class="imag_escucha" src="images/Imagenes_Login/lista.jpg" width="480" heigth="341" id="imagen1" alt=""></li>
 			</figure>
 			<div class="description center border_buttom">
 				<p class="name">Crea Tu Lista</p>
@@ -130,78 +130,46 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="playing small medium large">
 		<div class="music">
-			<figure class="image relative">
-				<img src="images/songs/rick.jpg" width="320" heigth="320" alt="">
-				<div class="actions absolute padding text_right">
-					<a href="" class="action icon-add"></a>
-					<a href="" class="action icon-love"></a>
-					<a href="" class="action icon-share"></a>
-				</div>
-			</figure>
-			<div class="padding">
-				<div class="progress">
-					<span class="min">0:38</span>
-					<div class="total">
-						<div class="state">
-							<div class="circle">
-							</div>
-						</div>
-					</div>
-					<span class="max">4:05</span>
-				</div>
-			</div>
-			<div class="description center border_buttom">
-				<p class="name">
-					Comme Get It Bae
-				</p>
-				<p class="author">
-					Pharrell Williams
-				</p>
-			</div>
-			<div class="play center padding-tb gris">
-				<a href="" class="action icon-prev gris"></a>
-				<a href="" class="action icon-play gris"></a>
-				<a href="" class="action icon-next gris"></a>
-				<a href="" class="action icon-random gris"></a>
-				<a href="" class="action icon-vol gris"></a>
-			</div>
+			<div class="play"></div>
+			<div class="controls"></div>
 		</div>
-		<div class="playlist right">			
+		<div class="playlist right">
      		<div class="current"></div>
 			<ul class="list"></ul>
 		</div>
 	</section>
-	
+
 	<section id="albums" class="container"></section>
 
 	<script id="player-template" type="text/x-handlebars-template">
     <figure class="image relative">
-        <img src="{{cover}}" width="320" height="320" alt="{{name}} - {{author}}">
+        <img src="{{cover}}"  alt="{{name}} - {{author}}">
         <div class="actions padding text_right absolute">
           <a href="#" class="action icon-add"></a>
           <a href="#" class="action icon-love"></a>
           <a href="#" class="action icon-share"></a>
         </div>
       </figure>
-      <div class="padding">
-        <div class="progress">
+  </script>
+
+  <script id="action-play-template" type="text/x-handlebars-template">
+  		<div class="padding">
+  		<div class="progress">
           <span class="min">0:45</span>
           <div class="total">
             <div class="state">
               <div class="circle">
-                
               </div>
             </div>
           </div>
           <span class="max">{{length}}</span>
-          <audio src="{{src}}"></audio>
         </div>
         <div class="description center border-buttom">
           <p class="name">
-            {{name}}
+            {{album_name}}
           </p>
           <p class="author">
             {{author}}
@@ -213,8 +181,12 @@
           <a href="" class="action gris icon-next"></a>
           <a href="" class="action gris icon-random"></a>
           <a href="" class="action gris icon-vol"></a>
+          <audio autoplay="autoplay">
+            <source src="{{src}}.ogg" type="audio/ogg"  />
+ 			<source src="{{src}}.mp3" type="audio/mpeg"  />
+          </audio>
         </div>
-      </div>
+        </div>
   </script>
 
   <script id="current-album-template" type="text/x-handlebars-template">
@@ -228,7 +200,7 @@
 
   <script id="song-template" type="text/x-handlebars-template">
 	    <span class="song">
-	      {{name}}
+	      {{name}} - {{length}}
 	    </span>
 	    <span class="right">
 	      <a href="" class="action icon-add gris"></a>
@@ -262,6 +234,7 @@
     <script type="text/javascript" src="js/views/album.js"></script>
     <script type="text/javascript" src="js/views/albums.js"></script>
   <script type="text/javascript" src="js/views/play.js"></script>
+  <script type="text/javascript" src="js/views/action.js"></script>
     <script type="text/javascript" src="js/routers/router.js"></script>
     <script type="text/javascript" src="js/ensayo.js"></script>
     <script type="text/javascript" src="js/main.js"></script>

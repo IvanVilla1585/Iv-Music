@@ -6,13 +6,15 @@ IvMusic.Router = Backbone.Router.extend({
 	},
 
 	initialize: function () {
+		this.listSongs = [];
 		this.current = {};
 		this.jsonData = {};
 		this.songs = new IvMusic.Collections.Songs();
 		this.albums = new IvMusic.Collections.Albums();
 		this.playList = new IvMusic.Views.Songs({ collection: this.songs });
 		this.albumList = new IvMusic.Views.Albums({ collection: this.albums });
-		this.play = new IvMusic.Views.Playing({ model: new IvMusic.Models.Song() });
+		this.play = new IvMusic.Views.Playing({ model: new IvMusic.Models.Album() });
+		this.actionPlay = new IvMusic.Views.Action({ model: new IvMusic.Models.Song() });
 
 		Backbone.history.start();
 	},
@@ -27,9 +29,11 @@ IvMusic.Router = Backbone.Router.extend({
 			var self = this;
 			this.fetchData().done(function (){
 				self.addSongs(name);
+				self.listSongs = self.jsonData[name].songs;
 			});
 		}else{
 			this.addSongs(name);
+			this.listSongs = this.jsonData[name].songs;
 		}
 	},
 
@@ -57,13 +61,13 @@ IvMusic.Router = Backbone.Router.extend({
 
   addSong: function (song) {
     var album = this.current.album;
-
     this.songs.add(new IvMusic.Models.Song({
       album_cover: album.cover,
       album_name: album.name,
       author: album.author,
       name: song.name,
-      length: song.length
+      length: song.length,
+      src: song.src
     }));
   },
 
@@ -72,7 +76,8 @@ IvMusic.Router = Backbone.Router.extend({
       name: name,
       author: album.author,
       cover: album.cover,
-      year: album.year
+      year: album.year,
+      songs: album.songs
     }));
   }
 });
