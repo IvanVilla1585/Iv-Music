@@ -1,3 +1,8 @@
+var Backbone    = require('backbone'),
+    Router      = require('./routers/router'),
+    $           = require('jquery')
+    Backbone.$  = $;
+
 $(function () {
-	IvMusic.app = new IvMusic.Router();
+  Backbone.app = new Router();
 });

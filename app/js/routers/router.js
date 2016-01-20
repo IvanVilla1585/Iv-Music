@@ -1,4 +1,15 @@
-IvMusic.Router = Backbone.Router.extend({
+var Backbone    = require('backbone'),
+		Songs       = require('../collections/songs'),
+		Albums      = require('../collections/albums'),
+		Song        = require('../models/song'),
+		Album       = require('../models/album'),
+	  Playing     = require('../views/play'),
+	  SongView    = require('../views/songs'),
+		AlbumView   = require('../views/albums'),
+		Action      = require('../views/action'),
+		$           = require('jquery');
+
+module.exports = Backbone.Router.extend({
 
 	routes: {
 		"": "index",
@@ -7,14 +18,21 @@ IvMusic.Router = Backbone.Router.extend({
 
 	initialize: function () {
 		this.listSongs = [];
+		this.isActive = false;
+		this.actual = -1;
+		this.totalSongs = 0;
+		this.audio = "";
+		this.state = $(".state");
+		this.circle = $(".circle");
+		this.audioMp3 = "";
 		this.current = {};
 		this.jsonData = {};
-		this.songs = new IvMusic.Collections.Songs();
-		this.albums = new IvMusic.Collections.Albums();
-		this.playList = new IvMusic.Views.Songs({ collection: this.songs });
-		this.albumList = new IvMusic.Views.Albums({ collection: this.albums });
-		this.play = new IvMusic.Views.Playing({ model: new IvMusic.Models.Album() });
-		this.actionPlay = new IvMusic.Views.Action({ model: new IvMusic.Models.Song() });
+		this.songs = new Songs();
+		this.albums = new Albums();
+		this.playList = new SongView({ collection: this.songs });
+		this.albumList = new AlbumView({ collection: this.albums });
+		this.play = new Playing({ model: new Album() });
+		this.actionPlay = new Action({ model: new Song() });
 
 		Backbone.history.start();
 	},
@@ -54,14 +72,13 @@ IvMusic.Router = Backbone.Router.extend({
 
   addSongs: function (name) {
     this.songs.reset();
-
     this.current.album = this.jsonData[name];
     this.current.album.songs.forEach(this.addSong, this);
   },
 
   addSong: function (song) {
     var album = this.current.album;
-    this.songs.add(new IvMusic.Models.Song({
+    this.songs.add(new Song({
       album_cover: album.cover,
       album_name: album.name,
       author: album.author,
@@ -72,12 +89,17 @@ IvMusic.Router = Backbone.Router.extend({
   },
 
   addAlbum: function (name, album) {
-    this.albums.add(new IvMusic.Models.Album({
+    this.albums.add(new Album({
       name: name,
       author: album.author,
       cover: album.cover,
       year: album.year,
       songs: album.songs
     }));
-  }
+  },
+
+	obtenerActual: function (album){
+		var actua = -1;
+	}
+
 });

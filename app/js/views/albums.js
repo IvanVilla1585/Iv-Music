@@ -1,4 +1,9 @@
-IvMusic.Views.Albums = Backbone.View.extend({
+var Backbone = require('backbone'),
+		Handlebars  = require('handlebars'),
+		$ = require('jquery'),
+		AlbumView = require('../views/album');
+
+module.exports = Backbone.View.extend({
 
 	el: $("#albums"),
 
@@ -10,7 +15,7 @@ IvMusic.Views.Albums = Backbone.View.extend({
 	},
 
 	addOne: function (album) {
-		var albumView = new IvMusic.Views.Album({ model: album });
+		var albumView = new AlbumView({ model: album });
 		this.$el.append(albumView.render().el);
 	},
 

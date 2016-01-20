@@ -1,13 +1,18 @@
-IvMusic.Views.Song = Backbone.View.extend({
+var Backbone    = require('backbone'),
+		Handlebars  = require('handlebars'),
+		$						= require('jquery'),
+		app					= Backbone.app;
+
+module.exports = Backbone.View.extend({
 
 	tagName: 'li',
 
 	className: 'item border_buttom',
-	
+
 	events: {
-		'click .song': 'action' 
+		'click .song': 'action'
 	},
-	
+
 	template: Handlebars.compile($("#song-template").html()),
 
 	initialize: function () {
@@ -22,6 +27,17 @@ IvMusic.Views.Song = Backbone.View.extend({
 	},
 
 	action: function (){
-		IvMusic.app.actionPlay.model.set(this.model.toJSON());
+		Backbone.app.actionPlay.model.set(this.model.toJSON());
+		var array = Backbone.app.songs.models;
+		Backbone.app.isActive = true;
+		Backbone.app.totalSongs = array.length;
+		for (var i = 0; i < array.length; i++){
+
+			if (array[i].get("name") == this.model.get("name")){
+				Backbone.app.actual = i;
+				i = array.length;
+			}
+		}
+		$("#audio").attr('autoplay', 'autoplay');
 	}
 });

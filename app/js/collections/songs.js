@@ -1,3 +1,6 @@
-IvMusic.Collections.Songs = Backbone.Collection.extend({
-	model: IvMusic.Models.Song
+var Backbone = require('backbone'),
+		Song     = require('../models/song');
+
+module.exports = Backbone.Collection.extend({
+	model: Song
 });

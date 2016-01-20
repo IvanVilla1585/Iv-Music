@@ -1,0 +1,35 @@
+{
+  "name": "ivmusic",
+  "version": "1.0.0",
+  "description": "Reproductor de musica personalizado",
+  "main": "server.js",
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "handlebars": "^3.0.3",
+    "jquery": "^2.1.4",
+    "node-static": "^0.7.6",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "scripts": {
+    "server": "node server.js",
+    "stylus": "stylus -u nib -c -w -o app/css/ app/stylus/styls.styl",
+    "bundle": "browserify app/js/main.js -o app/js/app.js",
+    "uglify": "uglifyjs app/js/app.js -o app/js/app.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanVilla1585/Iv-Music.git"
+  },
+  "keywords": [
+    "IvMusic"
+  ],
+  "author": "Ivan Dario Villa <trezeguet55@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IvanVilla1585/Iv-Music/issues"
+  },
+  "homepage": "https://github.com/IvanVilla1585/Iv-Music#readme"
+}

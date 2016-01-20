@@ -1,8 +1,14 @@
-IvMusic.Views.Album = Backbone.View.extend({ 
+var Backbone    = require('backbone'),
+		Handlebars  = require('handlebars'),
+		$						= require('jquery'),
+		_						= require('underscore'),
+		app					= Backbone.app;
+
+module.exports = Backbone.View.extend({
 
 	tagName: 'article',
 
-	className: 'song left',
+	className: 'song',
 
 	events: {
 		'click': 'navigate'
@@ -22,8 +28,11 @@ IvMusic.Views.Album = Backbone.View.extend({
 	},
 
 	navigate: function () {
-	    var albu = IvMusic.app.jsonData["this.model.get('name')"];
-		IvMusic.app.navigate("album/" + this.model.get("name"), { trigger: true });
-		IvMusic.app.play.model.set( this.model.toJSON() );
+	  var albu = Backbone.app.jsonData["this.model.get('name')"];
+		Backbone.app.navigate("album/" + this.model.get("name"), { trigger: true });
+		Backbone.app.play.model.set( this.model.toJSON() );
+		Backbone.app.listSongs = _.toArray(Backbone.app.songs.models);
+		Backbone.app.actionPlay.model.set(Backbone.app.listSongs[0].toJSON());
+		Backbone.app.actual = -1;
 	}
 });

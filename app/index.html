@@ -180,10 +180,11 @@
           <a href="" class="action gris icon-play"></a>
           <a href="" class="action gris icon-next"></a>
           <a href="" class="action gris icon-random"></a>
-          <a href="" class="action gris icon-vol"></a>
-          <audio autoplay="autoplay">
-            <source src="{{src}}.ogg" type="audio/ogg"  />
- 			<source src="{{src}}.mp3" type="audio/mpeg"  />
+          <a href="" id="mas" class="action gris icon-vol"><strong>+</strong></a>
+          <a href="" id="menos" class="action gris icon-vol"><strong>-</strong></a>
+          <audio id ="audio">
+            <source id="ogg" src="{{src}}.ogg" type="audio/ogg"  />
+ 						<source id="mp3" src="{{src}}.mp3" type="audio/mpeg"  />
           </audio>
         </div>
         </div>
@@ -220,23 +221,6 @@
 	      {{author}}
 	    </p>
   </script>
-    <script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="lib/underscore.js"></script>
-    <script type="text/javascript" src="lib/handlebars-v3.0.3.js"></script>
-    <script type="text/javascript" src="lib/backbone.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
-    <script type="text/javascript" src="js/models/song.js"></script>
-    <script type="text/javascript" src="js/models/album.js"></script>
-    <script type="text/javascript" src="js/collections/songs.js"></script>
-    <script type="text/javascript" src="js/collections/albums.js"></script>
-    <script type="text/javascript" src="js/views/song.js"></script>
-    <script type="text/javascript" src="js/views/songs.js"></script>
-    <script type="text/javascript" src="js/views/album.js"></script>
-    <script type="text/javascript" src="js/views/albums.js"></script>
-  <script type="text/javascript" src="js/views/play.js"></script>
-  <script type="text/javascript" src="js/views/action.js"></script>
-    <script type="text/javascript" src="js/routers/router.js"></script>
-    <script type="text/javascript" src="js/ensayo.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/app.min.js"></script>
 </body>
 </html>
