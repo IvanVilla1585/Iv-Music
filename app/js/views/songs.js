@@ -1,29 +1,29 @@
-var Backbone 		= require('backbone'),
-		$ 					= require('jquery'),
-		Handlebars  = require('handlebars'),
-		SongView 		= require('../views/song');
+var Backbone = require('backbone')
+var	$	= require('jquery')
+var	Handlebars = require('handlebars')
+var	SongView = require('../views/song')
 
 module.exports = Backbone.View.extend({
 
-	el: $(".playlist > .list"),
+	el: $('.playlist > .list'),
 
 	initialize: function () {
-		this.listenTo(this.collection, "add", this.addOne, this);
-		this.listenTo(this.collection, "reset", this.render, this);
+		this.listenTo(this.collection, 'add', this.addOne, this)
+		this.listenTo(this.collection, 'reset', this.render, this)
 	},
 
 	render: function () {
-		this.$el.empty();
-		this.addAll();
+		this.$el.empty()
+		this.addAll()
 	},
 
 	addOne: function (song) {
-		var songView = new SongView({ model: song });
-		this.$el.append(songView.render().el);
+		var songView = new SongView({ model: song })
+		this.$el.append(songView.render().el)
 	},
 
 	addAll: function () {
-		this.collection.forEach(this.addOne, this);
-		$(".playlist").css({"overflow-y": "scroll", "max-height": "40.4em"});
+		this.collection.forEach(this.addOne, this)
+		$('.playlist').css({ 'overflow-y': 'scroll', 'max-height': '40.4em' })
 	}
-});
+})

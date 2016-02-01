@@ -1,8 +1,8 @@
-var Backbone    = require('backbone'),
-    Router      = require('./routers/router'),
-    $           = require('jquery')
-    Backbone.$  = $;
+var Backbone = require('backbone')
+var Router = require('./routers/router')
+var $ = require('jquery')
+Backbone.$ = $
 
 $(function () {
-  Backbone.app = new Router();
-});
+  Backbone.app = new Router()
+})

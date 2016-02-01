@@ -1,117 +1,151 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var Backbone = require('backbone'),
-		Album    = require('../models/album');
+var Backbone = require('backbone')
+var	Album = require('../models/album')
 
 module.exports = Backbone.Collection.extend({
-	model: Album
-});
+  model: Album
+})
 
-},{"../models/album":4,"backbone":13}],2:[function(require,module,exports){
-var Backbone = require('backbone'),
-		Song     = require('../models/song');
+},{"../models/album":5,"backbone":14}],2:[function(require,module,exports){
+var Backbone = require('backbone')
+var	Song = require('../models/song')
 
 module.exports = Backbone.Collection.extend({
-	model: Song
-});
+  model: Song
+})
 
-},{"../models/song":5,"backbone":13}],3:[function(require,module,exports){
-var Backbone    = require('backbone'),
-    Router      = require('./routers/router'),
-    $           = require('jquery')
-    Backbone.$  = $;
+},{"../models/song":6,"backbone":14}],3:[function(require,module,exports){
+var Backbone = require('backbone')
+var $ = require('jquery')
+
+function stateCyrcleInit (pos) {
+  var arra = Backbone.app.listSongs
+  console.log(arra[pos])
+  var state = $('.state')
+  var circle = $('.circle')
+  var dura = Backbone.app.songs.models[pos].get('length')
+  var res = dura.split(':')
+  var seg = (parseInt(res[0]) * 60) + parseInt(res[1])
+  state.css('animation', seg + 's state infinite linear')
+  circle.css('animation', '1s circle infinite')
+}
+
+function stateCyrclePaused () {
+  var state = $('.state')
+  var circle = $('.circle')
+  state.css('animation-play-state', 'paused')
+  circle.css('animation-play-state', 'paused')
+}
+
+function stateCyrcleRunning () {
+  var state = $('.state')
+  var circle = $('.circle')
+  state.css('animation-play-state', 'running')
+  circle.css('animation-play-state', 'running')
+}
+
+module.exports = {
+  stateCyrcleInit: stateCyrcleInit,
+  stateCyrclePaused: stateCyrclePaused,
+  stateCyrcleRunning: stateCyrcleRunning
+}
+
+},{"backbone":14,"jquery":48}],4:[function(require,module,exports){
+var Backbone = require('backbone')
+var Router = require('./routers/router')
+var $ = require('jquery')
+Backbone.$ = $
 
 $(function () {
-  Backbone.app = new Router();
-});
+  Backbone.app = new Router()
+})
 
-},{"./routers/router":6,"backbone":13,"jquery":47}],4:[function(require,module,exports){
-var Backbone = require('backbone');
+},{"./routers/router":7,"backbone":14,"jquery":48}],5:[function(require,module,exports){
+var Backbone = require('backbone')
 
-module.exports = Backbone.Model.extend({});
+module.exports = Backbone.Model.extend({})
 
-},{"backbone":13}],5:[function(require,module,exports){
-arguments[4][4][0].apply(exports,arguments)
-},{"backbone":13,"dup":4}],6:[function(require,module,exports){
-var Backbone    = require('backbone'),
-		Songs       = require('../collections/songs'),
-		Albums      = require('../collections/albums'),
-		Song        = require('../models/song'),
-		Album       = require('../models/album'),
-	  Playing     = require('../views/play'),
-	  SongView    = require('../views/songs'),
-		AlbumView   = require('../views/albums'),
-		Action      = require('../views/action'),
-		$           = require('jquery');
+},{"backbone":14}],6:[function(require,module,exports){
+arguments[4][5][0].apply(exports,arguments)
+},{"backbone":14,"dup":5}],7:[function(require,module,exports){
+var Backbone = require('backbone')
+var Songs = require('../collections/songs')
+var Albums = require('../collections/albums')
+var Song = require('../models/song')
+var Album = require('../models/album')
+var Playing = require('../views/play')
+var SongView = require('../views/songs')
+var AlbumView = require('../views/albums')
+var Action = require('../views/action')
+var $ = require('jquery')
 
 module.exports = Backbone.Router.extend({
 
 	routes: {
-		"": "index",
-		"album/:name": "album"
+	  '': 'index',
+		'album/:name': 'album'
 	},
 
 	initialize: function () {
-		this.listSongs = [];
-		this.isActive = false;
-		this.actual = -1;
-		this.totalSongs = 0;
-		this.audio = "";
-		this.state = $(".state");
-		this.circle = $(".circle");
-		this.audioMp3 = "";
-		this.current = {};
-		this.jsonData = {};
-		this.songs = new Songs();
-		this.albums = new Albums();
-		this.playList = new SongView({ collection: this.songs });
-		this.albumList = new AlbumView({ collection: this.albums });
-		this.play = new Playing({ model: new Album() });
-		this.actionPlay = new Action({ model: new Song() });
+		this.listSongs = []
+		this.isActive = false
+		this.actual = -1
+		this.totalSongs = 0
+		this.audio = ''
+		this.state = $('.state')
+		this.circle = $('.circle')
+		this.audioMp3 = ""
+		this.current = {}
+		this.jsonData = {}
+		this.songs = new Songs()
+		this.albums = new Albums()
+		this.playList = new SongView({ collection: this.songs })
+		this.albumList = new AlbumView({ collection: this.albums })
+		this.play = new Playing({ model: new Album() })
+		this.actionPlay = new Action({ model: new Song() })
 
-		Backbone.history.start();
+		Backbone.history.start()
 	},
 
 	index: function () {
-		this.fetchData();
+		this.fetchData()
 	},
 
 	album: function (name) {
-		if (Object.keys(this.jsonData).length === 0){
+		if (Object.keys(this.jsonData).length === 0) {
 
-			var self = this;
-			this.fetchData().done(function (){
-				self.addSongs(name);
-				self.listSongs = self.jsonData[name].songs;
-			});
+			var self = this
+			this.fetchData().done(function () {
+				self.addSongs(name)
+				self.listSongs = self.jsonData[name].songs
+			})
 		}else{
-			this.addSongs(name);
-			this.listSongs = this.jsonData[name].songs;
+			this.addSongs(name)
+			this.listSongs = this.jsonData[name].songs
 		}
 	},
 
 	fetchData: function () {
-		var self = this;
+		var self = this
 		return $.getJSON('data.json').then(function (data){
 
-			self.jsonData = data;
-
-			for (var name in data){
-
-				if (data.hasOwnProperty(name)){
-					self.addAlbum(name, data[name]);
+			self.jsonData = data
+			for (var name in data) {
+				if (data.hasOwnProperty(name)) {
+					self.addAlbum(name, data[name])
 				}
 			}
-		});
+		})
 	},
 
   addSongs: function (name) {
-    this.songs.reset();
-    this.current.album = this.jsonData[name];
-    this.current.album.songs.forEach(this.addSong, this);
+    this.songs.reset()
+    this.current.album = this.jsonData[name]
+    this.current.album.songs.forEach(this.addSong, this)
   },
 
   addSong: function (song) {
-    var album = this.current.album;
+    var album = this.current.album
     this.songs.add(new Song({
       album_cover: album.cover,
       album_name: album.name,
@@ -119,7 +153,7 @@ module.exports = Backbone.Router.extend({
       name: song.name,
       length: song.length,
       src: song.src
-    }));
+    }))
   },
 
   addAlbum: function (name, album) {
@@ -129,127 +163,127 @@ module.exports = Backbone.Router.extend({
       cover: album.cover,
       year: album.year,
       songs: album.songs
-    }));
-  },
+    }))
+  }
 
-	obtenerActual: function (album){
-		var actua = -1;
-	}
+})
 
-});
-
-},{"../collections/albums":1,"../collections/songs":2,"../models/album":4,"../models/song":5,"../views/action":7,"../views/albums":9,"../views/play":10,"../views/songs":12,"backbone":13,"jquery":47}],7:[function(require,module,exports){
-var Backbone    = require('backbone'),
-		Handlebars  = require('handlebars'),
-		$						= require('jquery'),
-		_						= require('underscore'),
-		app					= Backbone.app;
+},{"../collections/albums":1,"../collections/songs":2,"../models/album":5,"../models/song":6,"../views/action":8,"../views/albums":10,"../views/play":11,"../views/songs":13,"backbone":14,"jquery":48}],8:[function(require,module,exports){
+var Backbone = require('backbone') 
+var	Handlebars = require('handlebars')
+var	$	= require('jquery')
+var	_	= require('underscore')
+var	app = Backbone.app
+var	StateCyrcle = require('../lib/StateCyrcle')
 
 module.exports = Backbone.View.extend({
-	el: $(".music > .controls"),
+	el: $('.music > .controls'),
 
-	events:{
+	events: {
 		'click .icon-play': 'play',
 		'click .icon-prev': 'prev',
 		'click .icon-next': 'next',
 		'click #mas': 'mas',
-		'click #menos': 'menos'
+		'click #menos': 'menos',
+		'click .icon-random': 'random'
 	},
 
-	template: Handlebars.compile($("#action-play-template").html()),
+	template: Handlebars.compile($('#action-play-template').html()),
 
-	initialize: function (){
-		this.listenTo(this.model, "change", this.render, this);
+	initialize: function () {
+		this.listenTo(this.model, 'change', this.render, this)
 	},
 
-	render: function (){
-		var action = this.model.toJSON();
-		this.$el.html(this.template(action));
+	render: function () {
+		var action = this.model.toJSON()
+		this.$el.html(this.template(action))
 	},
 
-	play: function(even){
-		even.preventDefault();
-		var res = "";
-		var dura = "";
-		var seg;
-		var state = $(".state");
-		var circle = $(".circle");
-		var actual = Backbone.app.actual;
-		if ( Backbone.app.isActive == true ){
-			$("#audio").trigger('pause');
-			Backbone.app.isActive = false;
+	play: function (even) {
+		even.preventDefault()
+		var actual = Backbone.app.actual
+		if ( Backbone.app.isActive == true ) {
+			$('#audio').trigger('pause')
+			StateCyrcle.stateCyrclePaused()
+			Backbone.app.isActive = false
 		}else{
-			if ( actual == -1){
-				Backbone.app.actual = 0;
-				console.log(Backbone.app.listSongs[0]);
-				dura = Backbone.app.listSongs[0].get("length");
-				res = dura.split(":");
-				seg = (parseInt(res[0]) * 60) + parseInt(res[1]);
-				state.css("animation", seg + "s state infinite linear");
-				circle.css("animation", "1s circle infinite");
-				$("#audio").trigger('play');
+			if ( actual == -1) {
+				Backbone.app.actual = 0
+				StateCyrcle.stateCyrcleInit(Backbone.app.actual)
+				$('#audio').trigger('play')
 			}else{
-				$("#audio").trigger('play');
+				$('#audio').trigger('play')
+				StateCyrcle.stateCyrcleRunning()
 			}
-			Backbone.app.isActive = true;
+			Backbone.app.isActive = true
 		}
 
 	},
 
-	prev: function(even){
-		even.preventDefault();
-		var cancion = Backbone.app.actual;
-		var array = _.toArray(Backbone.app.songs.models);
-		if ( cancion == 0 && Backbone.app.isActive == true ){
-			this.model.set("src", array[array.length - 1].get("src"));
-			cancion = Backbone.app.totalSongs;
+	prev: function (even) {
+		even.preventDefault()
+		var cancion = Backbone.app.actual
+		if ( cancion == 0 && Backbone.app.isActive == true ) {
+			Backbone.app.actionPlay.model.set(Backbone.app.songs.models[array.length - 1].toJSON())
+			cancion = Backbone.app.totalSongs
 		}else{
-			this.model.set("src", array[cancion - 1].get("src"));
+			Backbone.app.actionPlay.model.set(Backbone.app.songs.models[cancion - 1].toJSON())
 		}
-		Backbone.app.actual = cancion - 1;
-		$("#audio").attr('autoplay', 'autoplay');
+		Backbone.app.actual = cancion - 1
+		StateCyrcle.stateCyrcleInit(Backbone.app.actual)
+		$('#audio').attr('autoplay', 'autoplay')
 	},
 
-	next: function(even){
-		even.preventDefault();
-		var cancion = Backbone.app.actual;
-		var array = _.toArray(Backbone.app.songs.models);
-		if ( cancion == (Backbone.app.totalSongs - 1) && Backbone.app.isActive == true ){
-			this.model.set("src", array[0].get("src"));
-			cancion = 0;
+	next: function (even) {
+		even.preventDefault()
+		var cancion = Backbone.app.actual
+		if ( cancion == (Backbone.app.totalSongs - 1) && Backbone.app.isActive == true ) {
+			Backbone.app.actionPlay.model.set(Backbone.app.songs.models[0].toJSON())
+			cancion = 0
 		}else{
-			this.model.set("src", array[cancion + 1].get("src"));
+			Backbone.app.actionPlay.model.set(Backbone.app.songs.models[cancion + 1].toJSON())
 		}
-		Backbone.app.actual = cancion + 1;
-		$("#audio").attr('autoplay', 'autoplay');
+		Backbone.app.actual = cancion + 1
+		StateCyrcle.stateCyrcleInit(Backbone.app.actual)
+		$('#audio').attr('autoplay', 'autoplay')
 	},
 
-	mas: function(even){
-		even.preventDefault();
-		alert("mas");
-		var volume = $("#audio").trigger("volume") + 0.2;
-    if(volume > 1){
-        volume = 1;
-    }
-    $("#audio").trigger("volume",volume);
+	random: function (even) {
+		even.preventDefault()
+		var random = (Backbone.app.songs.models.length - 1)
+		var cancion = Math.round((Math.random() *  random))
+		Backbone.app.actionPlay.model.set( Backbone.app.songs.models[cancion].toJSON() )
+		Backbone.app.actual = cancion
+		StateCyrcle.stateCyrcleInit(Backbone.app.actual)
+		$('#audio').attr('autoplay', 'autoplay')
 	},
 
-	menos: function(even){
-		even.preventDefault();
-		var volume = $("#audio").trigger("volume") - 0.2;
-    if(volume < 0){
-        volume = 0;
+	mas: function (even) {
+		even.preventDefault()
+		alert('mas')
+		var volume = $('#audio').trigger('volume') + 0.2
+    if(volume > 1) {
+        volume = 1
     }
-    $("#audio").trigger("volume",volume);
+    $('#audio').trigger('volume',volume)
+	},
+
+	menos: function (even) {
+		even.preventDefault()
+		var volume = $('#audio').trigger('volume') - 0.2
+    if(volume < 0) {
+        volume = 0
+    }
+    $('#audio').trigger('volume',volume)
 	}
-});
+})
 
-},{"backbone":13,"handlebars":35,"jquery":47,"underscore":48}],8:[function(require,module,exports){
-var Backbone    = require('backbone'),
-		Handlebars  = require('handlebars'),
-		$						= require('jquery'),
-		_						= require('underscore'),
-		app					= Backbone.app;
+},{"../lib/StateCyrcle":3,"backbone":14,"handlebars":36,"jquery":48,"underscore":49}],9:[function(require,module,exports){
+var Backbone = require('backbone') 
+var	Handlebars = require('handlebars')
+var	$	= require('jquery')
+var	_	= require('underscore')
+var	app = Backbone.app
 
 module.exports = Backbone.View.extend({
 
@@ -261,82 +295,83 @@ module.exports = Backbone.View.extend({
 		'click': 'navigate'
 	},
 
-	template: Handlebars.compile($("#album-template").html()),
+	template: Handlebars.compile($('#album-template').html()),
 
 	initialize: function () {
-		this.listenTo(this.model, "change", this.render, this);
+		this.listenTo(this.model, 'change', this.render, this)
 	},
 
 	render: function () {
-		var album = this.model.toJSON();
-		var html = this.template(album);
-		this.$el.html(html);
-		return this;
+		var album = this.model.toJSON()
+		var html = this.template(album)
+		this.$el.html(html)
+		return this
 	},
 
 	navigate: function () {
-	  var albu = Backbone.app.jsonData["this.model.get('name')"];
-		Backbone.app.navigate("album/" + this.model.get("name"), { trigger: true });
-		Backbone.app.play.model.set( this.model.toJSON() );
-		Backbone.app.listSongs = _.toArray(Backbone.app.songs.models);
-		Backbone.app.actionPlay.model.set(Backbone.app.listSongs[0].toJSON());
-		Backbone.app.actual = -1;
+	  var albu = Backbone.app.jsonData["this.model.get('name')"]
+		Backbone.app.navigate('album/' + this.model.get('name'), { trigger: true })
+		Backbone.app.play.model.set( this.model.toJSON() )
+		Backbone.app.listSongs = _.toArray(Backbone.app.songs.models)
+		Backbone.app.actionPlay.model.set(Backbone.app.listSongs[0].toJSON())
+		Backbone.app.actual = -1
+		Backbone.app.isActive = false
 	}
-});
+})
 
-},{"backbone":13,"handlebars":35,"jquery":47,"underscore":48}],9:[function(require,module,exports){
-var Backbone = require('backbone'),
-		Handlebars  = require('handlebars'),
-		$ = require('jquery'),
-		AlbumView = require('../views/album');
+},{"backbone":14,"handlebars":36,"jquery":48,"underscore":49}],10:[function(require,module,exports){
+var Backbone = require('backbone') 
+var	Handlebars = require('handlebars')
+var	$ = require('jquery')
+var	AlbumView = require('../views/album')
 
 module.exports = Backbone.View.extend({
 
-	el: $("#albums"),
+	el: $('#albums'),
 
-	template: Handlebars.compile($("#album-template").html()),
+	template: Handlebars.compile($('#album-template').html()),
 
 	initialize: function () {
-		this.listenTo(this.collection, "add", this.addOne, this);
-
+		this.listenTo(this.collection, 'add', this.addOne, this)
 	},
 
 	addOne: function (album) {
-		var albumView = new AlbumView({ model: album });
-		this.$el.append(albumView.render().el);
+		var albumView = new AlbumView({ model: album })
+		this.$el.append(albumView.render().el)
 	},
 
 	render: function () {
-		this.collection.forEach(this.addOne, this);
+		this.collection.forEach(this.addOne, this)
 	}
-});
+})
 
-},{"../views/album":8,"backbone":13,"handlebars":35,"jquery":47}],10:[function(require,module,exports){
-var Backbone    = require('backbone'),
-		Handlebars  = require('handlebars'),
-		$						= require('jquery');
+},{"../views/album":9,"backbone":14,"handlebars":36,"jquery":48}],11:[function(require,module,exports){
+var Backbone = require('backbone') 
+var	Handlebars = require('handlebars')
+var	$	= require('jquery')
 
 module.exports = Backbone.View.extend({
 
-	el: $(".music > .play"),
+	el: $('.music > .play'),
 
-	template: Handlebars.compile($("#player-template").html()),
+	template: Handlebars.compile($('#player-template').html()),
 
-	initialize: function (){
-		this.listenTo(this.model, "change", this.render, this);
+	initialize: function () {
+		this.listenTo(this.model, 'change', this.render, this)
 	},
 
-	render: function (){
-		var album = this.model.toJSON();
-		this.$el.html(this.template(album));
+	render: function () {
+		var album = this.model.toJSON()
+		this.$el.html(this.template(album))
 	}
-});
+})
 
-},{"backbone":13,"handlebars":35,"jquery":47}],11:[function(require,module,exports){
-var Backbone    = require('backbone'),
-		Handlebars  = require('handlebars'),
-		$						= require('jquery'),
-		app					= Backbone.app;
+},{"backbone":14,"handlebars":36,"jquery":48}],12:[function(require,module,exports){
+var Backbone = require('backbone')
+var	Handlebars = require('handlebars')
+var	$	= require('jquery')
+var	app	= Backbone.app
+var	StateCyrcle = require('../lib/StateCyrcle')
 
 module.exports = Backbone.View.extend({
 
@@ -348,67 +383,68 @@ module.exports = Backbone.View.extend({
 		'click .song': 'action'
 	},
 
-	template: Handlebars.compile($("#song-template").html()),
+	template: Handlebars.compile($('#song-template').html()),
 
 	initialize: function () {
-		this.listenTo(this.model, "change", this.render, this);
+		this.listenTo(this.model, 'change', this.render, this)
 	},
 
 	render: function () {
-		var song = this.model.toJSON();
-		var html = this.template(song);
-		this.$el.html(html);
-		return this;
+		var song = this.model.toJSON()
+		var html = this.template(song)
+		this.$el.html(html)
+		return this
 	},
 
-	action: function (){
-		Backbone.app.actionPlay.model.set(this.model.toJSON());
-		var array = Backbone.app.songs.models;
-		Backbone.app.isActive = true;
-		Backbone.app.totalSongs = array.length;
-		for (var i = 0; i < array.length; i++){
+	action: function () {
+		Backbone.app.actionPlay.model.set(this.model.toJSON())
+		var array = Backbone.app.listSongs
+		Backbone.app.isActive = true
+		Backbone.app.totalSongs = Backbone.app.songs.models.length
+		for (var i = 0; i < Backbone.app.totalSongs;  i++) {
 
-			if (array[i].get("name") == this.model.get("name")){
-				Backbone.app.actual = i;
-				i = array.length;
+			if (Backbone.app.songs.models[i].get('name') == this.model.get('name')) {
+				Backbone.app.actual = i
+				i = array.length
 			}
 		}
-		$("#audio").attr('autoplay', 'autoplay');
+		StateCyrcle.stateCyrcleInit(Backbone.app.actual)
+		$('#audio').attr('autoplay', 'autoplay')
 	}
-});
+})
 
-},{"backbone":13,"handlebars":35,"jquery":47}],12:[function(require,module,exports){
-var Backbone 		= require('backbone'),
-		$ 					= require('jquery'),
-		Handlebars  = require('handlebars'),
-		SongView 		= require('../views/song');
+},{"../lib/StateCyrcle":3,"backbone":14,"handlebars":36,"jquery":48}],13:[function(require,module,exports){
+var Backbone = require('backbone')
+var	$	= require('jquery')
+var	Handlebars = require('handlebars')
+var	SongView = require('../views/song')
 
 module.exports = Backbone.View.extend({
 
-	el: $(".playlist > .list"),
+	el: $('.playlist > .list'),
 
 	initialize: function () {
-		this.listenTo(this.collection, "add", this.addOne, this);
-		this.listenTo(this.collection, "reset", this.render, this);
+		this.listenTo(this.collection, 'add', this.addOne, this)
+		this.listenTo(this.collection, 'reset', this.render, this)
 	},
 
 	render: function () {
-		this.$el.empty();
-		this.addAll();
+		this.$el.empty()
+		this.addAll()
 	},
 
 	addOne: function (song) {
-		var songView = new SongView({ model: song });
-		this.$el.append(songView.render().el);
+		var songView = new SongView({ model: song })
+		this.$el.append(songView.render().el)
 	},
 
 	addAll: function () {
-		this.collection.forEach(this.addOne, this);
-		$(".playlist").css({"overflow-y": "scroll", "max-height": "40.4em"});
+		this.collection.forEach(this.addOne, this)
+		$('.playlist').css({ 'overflow-y': 'scroll', 'max-height': '40.4em' })
 	}
-});
+})
 
-},{"../views/song":11,"backbone":13,"handlebars":35,"jquery":47}],13:[function(require,module,exports){
+},{"../views/song":12,"backbone":14,"handlebars":36,"jquery":48}],14:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.3
 
@@ -2306,9 +2342,9 @@ module.exports = Backbone.View.extend({
 }));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":47,"underscore":48}],14:[function(require,module,exports){
+},{"jquery":48,"underscore":49}],15:[function(require,module,exports){
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function (process){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -2536,7 +2572,7 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":16}],16:[function(require,module,exports){
+},{"_process":17}],17:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -2629,7 +2665,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -2693,7 +2729,7 @@ inst['default'] = inst;
 
 exports['default'] = inst;
 module.exports = exports['default'];
-},{"./handlebars.runtime":18,"./handlebars/compiler/ast":20,"./handlebars/compiler/base":21,"./handlebars/compiler/compiler":23,"./handlebars/compiler/javascript-compiler":25,"./handlebars/compiler/visitor":28,"./handlebars/no-conflict":31}],18:[function(require,module,exports){
+},{"./handlebars.runtime":19,"./handlebars/compiler/ast":21,"./handlebars/compiler/base":22,"./handlebars/compiler/compiler":24,"./handlebars/compiler/javascript-compiler":26,"./handlebars/compiler/visitor":29,"./handlebars/no-conflict":32}],19:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -2754,7 +2790,7 @@ inst['default'] = inst;
 
 exports['default'] = inst;
 module.exports = exports['default'];
-},{"./handlebars/base":19,"./handlebars/exception":30,"./handlebars/no-conflict":31,"./handlebars/runtime":32,"./handlebars/safe-string":33,"./handlebars/utils":34}],19:[function(require,module,exports){
+},{"./handlebars/base":20,"./handlebars/exception":31,"./handlebars/no-conflict":32,"./handlebars/runtime":33,"./handlebars/safe-string":34,"./handlebars/utils":35}],20:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -3028,7 +3064,7 @@ function createFrame(object) {
 }
 
 /* [args, ]options */
-},{"./exception":30,"./utils":34}],20:[function(require,module,exports){
+},{"./exception":31,"./utils":35}],21:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -3181,7 +3217,7 @@ var AST = {
 // must modify the object to operate properly.
 exports['default'] = AST;
 module.exports = exports['default'];
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -3228,7 +3264,7 @@ function parse(input, options) {
   var strip = new _WhitespaceControl2['default']();
   return strip.accept(_parser2['default'].parse(input));
 }
-},{"../utils":34,"./ast":20,"./helpers":24,"./parser":26,"./whitespace-control":29}],22:[function(require,module,exports){
+},{"../utils":35,"./ast":21,"./helpers":25,"./parser":27,"./whitespace-control":30}],23:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -3393,7 +3429,7 @@ exports['default'] = CodeGen;
 module.exports = exports['default'];
 
 /* NOP */
-},{"../utils":34,"source-map":36}],23:[function(require,module,exports){
+},{"../utils":35,"source-map":37}],24:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -3921,7 +3957,7 @@ function transformLiteralToPath(sexpr) {
     sexpr.path = new _AST2['default'].PathExpression(false, 0, [literal.original + ''], literal.original + '', literal.loc);
   }
 }
-},{"../exception":30,"../utils":34,"./ast":20}],24:[function(require,module,exports){
+},{"../exception":31,"../utils":35,"./ast":21}],25:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -4053,7 +4089,7 @@ function prepareBlock(openBlock, program, inverseAndProgram, close, inverted, lo
 
   return new this.BlockStatement(openBlock.path, openBlock.params, openBlock.hash, program, inverse, openBlock.strip, inverseStrip, close && close.strip, this.locInfo(locInfo));
 }
-},{"../exception":30}],25:[function(require,module,exports){
+},{"../exception":31}],26:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -5116,7 +5152,7 @@ function strictLookup(requireTerminal, compiler, parts, type) {
 
 exports['default'] = JavaScriptCompiler;
 module.exports = exports['default'];
-},{"../base":19,"../exception":30,"../utils":34,"./code-gen":22}],26:[function(require,module,exports){
+},{"../base":20,"../exception":31,"../utils":35,"./code-gen":23}],27:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -5795,7 +5831,7 @@ var handlebars = (function () {
     return new Parser();
 })();exports["default"] = handlebars;
 module.exports = exports["default"];
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -5961,7 +5997,7 @@ PrintVisitor.prototype.HashPair = function (pair) {
   return pair.key + '=' + this.accept(pair.value);
 };
 /*eslint-enable new-cap */
-},{"./visitor":28}],28:[function(require,module,exports){
+},{"./visitor":29}],29:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -6094,7 +6130,7 @@ Visitor.prototype = {
 exports['default'] = Visitor;
 module.exports = exports['default'];
 /* content */ /* comment */ /* path */ /* string */ /* number */ /* bool */ /* literal */ /* literal */
-},{"../exception":30,"./ast":20}],29:[function(require,module,exports){
+},{"../exception":31,"./ast":21}],30:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -6307,7 +6343,7 @@ function omitLeft(body, i, multiple) {
 
 exports['default'] = WhitespaceControl;
 module.exports = exports['default'];
-},{"./visitor":28}],30:[function(require,module,exports){
+},{"./visitor":29}],31:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -6346,7 +6382,7 @@ Exception.prototype = new Error();
 
 exports['default'] = Exception;
 module.exports = exports['default'];
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -6367,7 +6403,7 @@ exports['default'] = function (Handlebars) {
 
 module.exports = exports['default'];
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
@@ -6600,7 +6636,7 @@ function initData(context, data) {
   }
   return data;
 }
-},{"./base":19,"./exception":30,"./utils":34}],33:[function(require,module,exports){
+},{"./base":20,"./exception":31,"./utils":35}],34:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -6615,7 +6651,7 @@ SafeString.prototype.toString = SafeString.prototype.toHTML = function () {
 
 exports['default'] = SafeString;
 module.exports = exports['default'];
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -6730,7 +6766,7 @@ function blockParams(params, ids) {
 function appendContextPath(contextPath, id) {
   return (contextPath ? contextPath + '.' : '') + id;
 }
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */
@@ -6757,7 +6793,7 @@ if (typeof require !== 'undefined' && require.extensions) {
   require.extensions['.hbs'] = extension;
 }
 
-},{"../dist/cjs/handlebars":17,"../dist/cjs/handlebars/compiler/printer":27,"fs":14}],36:[function(require,module,exports){
+},{"../dist/cjs/handlebars":18,"../dist/cjs/handlebars/compiler/printer":28,"fs":15}],37:[function(require,module,exports){
 /*
  * Copyright 2009-2011 Mozilla Foundation and contributors
  * Licensed under the New BSD license. See LICENSE.txt or:
@@ -6767,7 +6803,7 @@ exports.SourceMapGenerator = require('./source-map/source-map-generator').Source
 exports.SourceMapConsumer = require('./source-map/source-map-consumer').SourceMapConsumer;
 exports.SourceNode = require('./source-map/source-node').SourceNode;
 
-},{"./source-map/source-map-consumer":42,"./source-map/source-map-generator":43,"./source-map/source-node":44}],37:[function(require,module,exports){
+},{"./source-map/source-map-consumer":43,"./source-map/source-map-generator":44,"./source-map/source-node":45}],38:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -6866,7 +6902,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":45,"amdefine":46}],38:[function(require,module,exports){
+},{"./util":46,"amdefine":47}],39:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -7010,7 +7046,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./base64":39,"amdefine":46}],39:[function(require,module,exports){
+},{"./base64":40,"amdefine":47}],40:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -7054,7 +7090,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":46}],40:[function(require,module,exports){
+},{"amdefine":47}],41:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -7136,7 +7172,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":46}],41:[function(require,module,exports){
+},{"amdefine":47}],42:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2014 Mozilla Foundation and contributors
@@ -7224,7 +7260,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./util":45,"amdefine":46}],42:[function(require,module,exports){
+},{"./util":46,"amdefine":47}],43:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -7801,7 +7837,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":37,"./base64-vlq":38,"./binary-search":40,"./util":45,"amdefine":46}],43:[function(require,module,exports){
+},{"./array-set":38,"./base64-vlq":39,"./binary-search":41,"./util":46,"amdefine":47}],44:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -8203,7 +8239,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./array-set":37,"./base64-vlq":38,"./mapping-list":41,"./util":45,"amdefine":46}],44:[function(require,module,exports){
+},{"./array-set":38,"./base64-vlq":39,"./mapping-list":42,"./util":46,"amdefine":47}],45:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -8619,7 +8655,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"./source-map-generator":43,"./util":45,"amdefine":46}],45:[function(require,module,exports){
+},{"./source-map-generator":44,"./util":46,"amdefine":47}],46:[function(require,module,exports){
 /* -*- Mode: js; js-indent-level: 2; -*- */
 /*
  * Copyright 2011 Mozilla Foundation and contributors
@@ -8940,7 +8976,7 @@ define(function (require, exports, module) {
 
 });
 
-},{"amdefine":46}],46:[function(require,module,exports){
+},{"amdefine":47}],47:[function(require,module,exports){
 (function (process,__filename){
 /** vim: et:ts=4:sw=4:sts=4
  * @license amdefine 1.0.0 Copyright (c) 2011-2015, The Dojo Foundation All Rights Reserved.
@@ -9245,7 +9281,7 @@ function amdefine(module, requireFn) {
 module.exports = amdefine;
 
 }).call(this,require('_process'),"/node_modules/handlebars/node_modules/source-map/node_modules/amdefine/amdefine.js")
-},{"_process":16,"path":15}],47:[function(require,module,exports){
+},{"_process":17,"path":16}],48:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -18457,7 +18493,7 @@ return jQuery;
 
 }));
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -20007,4 +20043,4 @@ return jQuery;
   }
 }.call(this));
 
-},{}]},{},[3]);
+},{}]},{},[4]);

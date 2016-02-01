@@ -1,6 +1,6 @@
-var Backbone = require('backbone'),
-		Song     = require('../models/song');
+var Backbone = require('backbone')
+var	Song = require('../models/song')
 
 module.exports = Backbone.Collection.extend({
-	model: Song
-});
+  model: Song
+})
