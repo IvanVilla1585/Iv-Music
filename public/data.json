@@ -1,0 +1,360 @@
+{
+  "FURIOUS 7": {
+    "author": "Mix Regueton",
+    "cover": "./images/songs/reg.jpg",
+    "year": 2014,
+    "songs": [
+      {
+        "name": "Ride Out",
+        "length": "3:32",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/01. Kid Ink, Tyga, YG, Wale & Rich Homie Quan - Ride Out"
+      },
+      {
+        "name": "Off-Set",
+        "length": "3:13",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/02. T.I. & Young Thug - Off-Set"
+      },
+      {
+        "name": "How Bad Do You Want It (Oh Yeah)",
+        "length": "3:44",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/03. Sevyn Streeter - How Bad Do You Want It (Oh Yeah)"
+      },
+      {
+        "name": "Dillon Francis - Get Low",
+        "length": "3:33",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/04. DJ Snake & Dillon Francis - Get Low"
+      },
+      {
+        "name": "Go Hard or Go Home",
+        "length": "3:52",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/05. Wiz Khalifa & Iggy Azalea - Go Hard or Go Home"
+      },
+      {
+        "name": "Prince Royce - My Angel",
+        "length": "3:10",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/06. Prince Royce - My Angel"
+      },
+      {
+        "name": "See You Again",
+        "length": "3:49",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/07. Wiz Khalifa - See You Again (feat. Charlie Puth)"
+      },
+      {
+        "name": "Payback",
+        "length": "3:58",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/08. Juicy J, Kevin Gates, Future & Sage the Gemini - Payback"
+      },
+      {
+        "name": "Blast Off",
+        "length": "3:08",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/09. David Guetta & Kaz James - Blast Off"
+      },
+      {
+        "name": "Six Days",
+        "length": "3:52",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/10. DJ Shadow - Six Days (feat. Mos Def) (Remix)"
+      },
+      {
+        "name": "Ay Vamos",
+        "length": "4:55",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/11. J. Balvin - Ay Vamos (feat. French Montana & Nicky Jam)"
+      },
+      {
+        "name": "Flo Rida - GDFR",
+        "length": "4:24",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/12. Flo Rida - GDFR (feat. Sage The Gemini and Lookas) [Noodles Remix]"
+      },
+      {
+        "name": "Turn Down For What",
+        "length": "3:34",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/13. DJ Snake & Lil Jon - Turn Down For What"
+      },
+      {
+        "name": "Meneo",
+        "length": "3:44",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/14. Fito Blanko - Meneo"
+      },
+      {
+        "name": "I Will Return",
+        "length": "3:56",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/15. Skylar Grey - I Will Return"
+      },
+      {
+        "name": "Famous to Most",
+        "length": "3:41",
+        "src": "./Musica/Furious 7 (Soundtrack) (2015)/16. Famous to Most - Whip (Bonus Track)"
+      }
+    ]
+  },
+  "United we are": {
+    "author": "Hardwell",
+    "cover": "/images/songs/harwel.jpg",
+    "year": 1984,
+    "songs": [
+      {
+        "name": "Eclipse",
+        "length": "3:12",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/01. Hardwell - Eclipse"
+      },
+      {
+        "name": "Follow Me",
+        "length": "3:19",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/02. Hardwell & Jason Derulo - Follow Me"
+      },
+      {
+        "name": "Sally",
+        "length": "4:38",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/03. Hardwell - Sally (feat. Harrison)"
+      },
+      {
+        "name": "Let Me Be Your Home",
+        "length": "3:35",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/04. Hardwell - Let Me Be Your Home (feat. Bright Lights)"
+      },
+      {
+        "name": "Colors",
+        "length": "4:00",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/05. Hardwell & Tiesto - Colors (feat. Andreas Moe)"
+      },
+      {
+        "name": "Where Is Here Now",
+        "length": "3:15",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/06. Hardwell & Funkerman - Where Is Here Now (feat. I-Fan)"
+      },
+      {
+        "name": "United We Are",
+        "length": "5:51",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/07. Hardwell - United We Are (feat. Amba Shepherd)"
+      },
+      {
+        "name": "Don't Stop the Madness",
+        "length": "3:45",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/08. Hardwell & W&W - Don't Stop the Madness (feat. Fatman Scoop)"
+      },
+      {
+        "name": "Young Again",
+        "length": "3:39",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/09. Hardwell - Young Again (feat. Chris Jones)"
+      },
+      {
+        "name": "Echo",
+        "length": "5:08",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/10. Hardwell - Echo (feat. Jonathan Mendelsohn)"
+      },
+      {
+        "name": "Arcadia",
+        "length": "3:13",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/11. Hardwell & Joey Dale - Arcadia (feat. Luciana)"
+      },
+      {
+        "name": "Area51",
+        "length": "3:00",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/12. Hardwell & DallasK - Area51"
+      },
+      {
+        "name": "Nothing Can Hold Us Down",
+        "length": "3:18",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/13. Hardwell & Headhunterz - Nothing Can Hold Us Down (feat. Haris)"
+      },
+      {
+        "name": "Birds Fly",
+        "length": "3:27",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/14. Hardwell - Birds Fly (feat. Mr. Probz)"
+      },
+      {
+        "name": "Dare You",
+        "length": "3:06",
+        "src": "/Musica/Hardwell - United We Are (Deluxe Edition) (2015)/15. Hardwell - Dare You (feat. Matthew Koma & Bebe Rexha) [Acoustic Version]"
+      }
+    ]
+  },
+  "Hood Billionaire": {
+    "author": "Rick Ross",
+    "cover": "/images/songs/rick.jpg",
+    "year": 2010,
+    "songs": [
+      {
+        "name": "Intro",
+        "length": "2:07",
+        "src": "/Musica/Rick Ross - Hood Billionaire/01. Intro"
+      },
+      {
+        "name": "Hood Billionaire",
+        "length": "3:57",
+        "src": "/Musica/Rick Ross - Hood Billionaire/02. Hood Billionaire"
+      },
+      {
+        "name": "Coke Like The 80’s",
+        "length": "4:48",
+        "src": "/Musica/Rick Ross - Hood Billionaire/03. Coke Like The 80’s"
+      },
+      {
+        "name": "Heavyweight (Ft. Slab)",
+        "length": "4:06",
+        "src": "/Musica/Rick Ross - Hood Billionaire/04. Heavyweight (Ft. Slab)"
+      },
+      {
+        "name": "Neighborhood Drug Dealer",
+        "length": "3:53",
+        "src": "/Musica/Rick Ross - Hood Billionaire/05. Neighborhood Drug Dealer"
+      },
+      {
+        "name": "Phone Tap",
+        "length": "4:38",
+        "src": "/Musica/Rick Ross - Hood Billionaire/06. Phone Tap"
+      },
+      {
+        "name": "Trap Luv (Ft. Yo Gotti)",
+        "length": "4:10",
+        "src": "/Musica/Rick Ross - Hood Billionaire/07. Trap Luv (Ft. Yo Gotti)"
+      },
+      {
+        "name": "Elvis Presley Blvd",
+        "length": "6:02",
+        "src": "/Musica/Rick Ross - Hood Billionaire/08. Elvis Presley Blvd. (Ft. Project Pat)"
+      },
+      {
+        "name": "Movin’ Bass (Ft. JAY Z)",
+        "length": "4:23",
+        "src": "/Musica/Rick Ross - Hood Billionaire/09. Movin’ Bass (Ft. JAY Z)"
+      },
+      {
+        "name": "If They Knew",
+        "length": "4:34",
+        "src": "/Musica/Rick Ross - Hood Billionaire/10. If They Knew (Ft. K. Michelle)"
+      },
+      {
+        "name": "Quintessential (Ft. Snoop)",
+        "length": "3:13",
+        "src": "/Musica/Rick Ross - Hood Billionaire/11. Quintessential (Ft. Snoop Dogg)"
+      },
+      {
+        "name": "Keep Doin’ That",
+        "length": "4:13",
+        "src": "/Musica/Rick Ross - Hood Billionaire/12. Keep Doin’ That (Rich Bitch) (Ft. R. Kelly)"
+      },
+      {
+        "name": "Nickel Rock",
+        "length": "4:47",
+        "src": "/Musica/Rick Ross - Hood Billionaire/13. Nickel Rock (Ft. Boosie Badazz)"
+      },
+      {
+        "name": "Burn",
+        "length": "5:15",
+        "src": "/Musica/Rick Ross - Hood Billionaire/14. Burn"
+      },
+      {
+        "name": "Family Ties",
+        "length": "3:42",
+        "src": "/Musica/Rick Ross - Hood Billionaire/15. Family Ties"
+      },
+      {
+        "name": "Brimstone (Ft. Big K.R.I.T.)",
+        "length": "5:56",
+        "src": "/Musica/Rick Ross - Hood Billionaire/16. Brimstone (Ft. Big K.R.I.T.)"
+      }
+    ]
+  },
+  "V. A. - Reggaeton": {
+    "author": "Mix Reggaeton",
+    "cover": "/images/songs/regue.jpg",
+    "year": 2015,
+    "songs": [
+      {
+        "name": "Don Omar - Guaya Guaya",
+        "length": "3:10",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/01. Don Omar - Guaya Guaya"
+      },
+      {
+        "name": "J Balvin - Ay Vamos",
+        "length": "4:50",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/02. J Balvin - Ay Vamos"
+      },
+      {
+        "name": "Justin Quiles - Orgullo",
+        "length": "3:30",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/03 Justin Quiles Feat. J Balvin - Orgullo (Official Remix)"
+      },
+      {
+        "name": "Plan B - Fanatica Sensual",
+        "length": "3:56",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/04. Plan B - Fanatica Sensual"
+      },
+      {
+        "name": "Nicky Jam – Travesuras (Official Remix)",
+        "length": "4:42",
+        "src": "Musica/V. A. - Reggaeton Hits (2015)/05. Nicky Jam Feat. Arcangel, De La Ghetto, Zion y J Balvin – Travesuras (Official Remix)"
+      },
+      {
+        "name": " Tito El Bambino - A Que No Te Atreves",
+        "length": "3:47",
+        "src": "Musica/V. A. - Reggaeton Hits (2015)/06. Tito El Bambino Feat. Chencho, Daddy Yankee & Yandel - A Que No Te Atreves (Official Remix)"
+      },
+      {
+        "name": "Jory Boy - Noche De Fantasias",
+        "length": "3:54",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/07. Jory Boy Feat. Farruko y J Alvarez - Noche De Fantasias (Official Remix)"
+      },
+      {
+        "name": "Farruko - Si No Te Tengo",
+        "length": "4:08",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/08. Farruko - Si No Te Tengo (Feat. Tony Dize)"
+      },
+      {
+        "name": "Zion y Lennox - Pierdo La Cabeza",
+        "length": "3:38",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/09. Zion y Lennox - Pierdo La Cabeza"
+      },
+      {
+        "name": "Farruko - Estas Pa Mí",
+        "length": "3:14",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/10. Farruko - Estas Pa Mí"
+      },
+      {
+        "name": "Plan B - Love And Sex",
+        "length": "4:00",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/11. Plan B - Love And Sex"
+      },
+      {
+        "name": "Justin Quiles - Esta Noche",
+        "length": "3:28",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/12. Justin Quiles - Esta Noche"
+      },
+      {
+        "name": "Farruko - Baby Si Tu",
+        "length": "3:41",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/13. Farruko Feat. Ken-Y - Baby Si Tu"
+      },
+      {
+        "name": "Nicky Jam - El Perdon",
+        "length": "3:23",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/14. Nicky Jam - El Perdon"
+      },
+      {
+        "name": "Farruko - Passion Wine",
+        "length": "3:28",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/15. Farruko Feat. Sean Paul - Passion Wine"
+      },
+      {
+        "name": "Kevin Roldan - Una Noche Mas.",
+        "length": "3:32",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/16. Kevin Roldan Feat. Nicky Jam - Una Noche Mas"
+      },
+      {
+        "name": "Plan B - No Quiero Que Te Vayas",
+        "length": "3:43",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/17. Plan B - No Quiero Que Te Vayas"
+      },
+      {
+        "name": "Wisin - Yo Quiero Contigo",
+        "length": "3:52",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/18. Wisin - Yo Quiero Contigo (Imaginate)"
+      },
+      {
+        "name": "Nicky Jam - Si Tu No Estas",
+        "length": "3:35",
+        "src": "/Musica/V. A. - Reggaeton Hits (2015)/19. Nicky Jam Feat. De La Ghetto - Si Tu No Estas"
+      }
+    ]
+  }
+}
